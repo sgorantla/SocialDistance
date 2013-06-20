@@ -1,0 +1,20 @@
+<h1>Listing social_users</h1>
+
+
+<input type="button" id="connect_fb_button" value="Conntect to Facebook"/>
+
+Code: {{ code }}
+<br/>
+Access Token : {{ access_token }}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var code = '{{ code }}'
+    var url = "https://graph.facebook.com/oauth/access_token?client_id=349761381783116&" +
+            "redirect_uri=http://localhost:3000/auth_callback&" +
+            "client_secret=da240fd7d77a5afb900372791568a396&" +
+            "code=" + code + "&response_type=token";
+    $(document).ready(function () {
+        window.opener.location.reload(true);
+        //window.close();
+    });
+</script>

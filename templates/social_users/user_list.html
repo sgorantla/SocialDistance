@@ -1,0 +1,43 @@
+<h1>
+    Social Users&nbsp;<a href="http://localhost:3000/social_distance/new_distance/">Social Distance</a>
+</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Accesstoken</th>
+        <th>Accountid</th>
+    </tr>
+
+    {% if social_user_list %}
+        {% for social_user in social_user_list %}
+        <tr>
+            <td>{{ social_user.name  }}</td>
+            <td>{{ social_user.email }}</td>
+            <td>{{ social_user.accessToken }} </td>
+            <td>{{ social_user.account_id }}</td>
+        </tr>
+        {% endfor %}
+    {% else %}
+        <p>No Users are available.</p>
+    {% endif %}
+</table>
+<br />
+
+<input type="button" id="connect_fb_button" value="Conntect to Facebook" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    var url = "https://graph.facebook.com/oauth/authorize?client_id=349761381783116&" +
+            "redirect_uri=http://localhost:3000/auth_callback&" +
+            "scope=user_about_me,friends_about_me,email,publish_actions";
+    $(document).ready(function(){
+        $('#connect_fb_button').click(function() {
+                    window.open(url, 'fbAuth');
+                    return false;
+
+                }
+        )
+    });
+</script>

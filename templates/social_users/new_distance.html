@@ -1,0 +1,27 @@
+<h1>
+    <a href="http://localhost:3000/social_distance/social_users/">Social Users</a>&nbsp;Social Distance
+</h1>
+
+
+<form method="post" id="new_social_user" class="new_social_user" action="/social_distance/find_distance/" accept-charset="UTF-8">{%  csrf_token %}
+    <table>
+        <tr>
+            <td>
+                <label for="start_name">My Name:</label>
+                <input type="text" id="start_name" name="start_name" value=""/>
+            </td>
+            <?tr>
+        <tr>
+            <td>
+                <label for="end_name">Friend Name:</label>
+                <input type="text" id="end_name" name="end_name" value=""/>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <table>
+        <tr>
+            <input type="submit" name="find_social_distance" value="Find Social Distance" />
+        </tr>
+    </table>
+</form>
